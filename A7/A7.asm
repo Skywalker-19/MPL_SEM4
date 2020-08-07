@@ -1,5 +1,4 @@
-
- %include"macro.asm"
+%include"macro.asm"
 
 section .bss
                filename: resb 64
@@ -138,9 +137,3 @@ _ProcessArray:
 	jnz begin1
 	
 	ret
-
-
-        
-
-
-

@@ -14,21 +14,21 @@
     syscall;
 %endmacro
 
-%macro FILE_OPEN 1
+%macro fopen 2
     mov rax,02;     //SYS_OPEN
     mov rdi,%1;     //file-name
-    mov rsi,02;     //O_RDWR
+    mov rsi,%2;     //File-Open Mode
     mov rdx,0777o;  //File-Permission
     syscall;
 %endmacro
 
-%macro FILE_CLOSE 1
+%macro fclose 1
     mov rax,03;     //SYS_CLOSE
     mov rdi,%1;     //File-Descriptor
     syscall;
 %endmacro
 
-%macro FILE_READ 3
+%macro fread 3
     mov rax,00;     //SYS_READ
     mov rdi,%1;     //File-Descriptor
     mov rsi,%2;     //Buffer
@@ -36,7 +36,7 @@
     syscall;
 %endmacro
 
-%macro FILE_WRITE 3
+%macro fwrite 3
     mov rax,01;     //SYS_WRITE
     mov rdi,%1;     //File-Descriptor
     mov rsi,%2;     //Buffer
